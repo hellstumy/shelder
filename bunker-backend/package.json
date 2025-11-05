@@ -2,8 +2,9 @@
   "name": "bunker-backend",
   "version": "1.0.0",
   "type": "module",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "better-sqlite3": "^12.4.1",
