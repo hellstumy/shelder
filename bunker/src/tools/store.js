@@ -53,6 +53,7 @@ const useStore = create(
       windowState: "start",
       setWindowState: () => set({ windowState: "Game" }),
       backWindowState: () => set({ windowState: "Start" }),
+      setRulesState: () => set({ windowState: "Rules" }),
     }),
     {
       name: "bunker-storage", // название хранилища в localStorage

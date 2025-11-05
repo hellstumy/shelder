@@ -1,10 +1,10 @@
 import waiting from "../../assets/waiting.svg";
-import { getRoomPlayers, setRoomState, onPlayerJoined, removeListeners } from "../../api/api";
+import { getRoomPlayers, setRoomState, onPlayerJoined, onStateUpdate, removeListeners } from "../../api/api";
 import { useState, useEffect } from "react";
 import useStore from "../../tools/store";
 
 export default function StartGameWaiting() {
-  const { roomCode, setWindowState } = useStore();
+  const { roomCode, setWindowState} = useStore();
   const [players, setPlayers] = useState([]);
 
   // --- Загрузка игроков при подключении ---
@@ -27,6 +27,14 @@ export default function StartGameWaiting() {
       setPlayers((prev) => [...prev, player]);
     });
 
+    // --- Слушаем обновление состояния комнаты ---
+    onStateUpdate((payload) => {
+      const state = typeof payload === "string" ? payload : payload?.state || payload?.state?.state || payload;
+      if (state === "started") {
+        setWindowState("Game");
+      }
+    });
+
     return () => removeListeners();
   }, [roomCode]);
 
@@ -34,7 +42,7 @@ export default function StartGameWaiting() {
   const handleStartGame = async () => {
     try {
       await setRoomState(roomCode, "started");
-      setWindowState("game");
+      // Не переходим на Game здесь, так как все игроки получат stateUpdate через socket
     } catch (err) {
       console.error("Ошибка при обновлении состояния комнаты:", err);
     }
@@ -47,7 +55,7 @@ export default function StartGameWaiting() {
         {(players?.length ?? 0)}/6
       </p>
 
-      
+
 
       <img src={waiting} alt="waiting" />
       <button
@@ -57,6 +65,7 @@ export default function StartGameWaiting() {
       >
         Начать игру
       </button>
+      
     </div>
   );
 }

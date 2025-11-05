@@ -92,6 +92,11 @@ export const sendReveal = (roomCode, requester, target, attribute) => {
   socket.emit("reveal", { roomCode, requester, target, attribute });
 };
 
+// Эмиттеры
+export const emitStateUpdate = (roomCode, state) => {
+  socket.emit("stateUpdate", { roomCode, state });
+};
+
 // Очистка слушателей
 export const removeListeners = () => {
   socket.off("playerJoined");

@@ -7,7 +7,7 @@ import "./StartGame.css";
 
 
 export default function StartGame() {
-  const {startState, goBack} = useStore();
+  const {startState, goBack, setRulesState } = useStore();
   
   
 
@@ -20,7 +20,22 @@ export default function StartGame() {
         {startState === "buttons" && <StartGameButtons />}
         {startState === "inputs" && <StartGameInputs/>}
         {startState === "waiting"  && <StartGameWaiting />}
-      
+      <button
+        onClick={setRulesState}
+        style={{
+          position: "absolute",
+          top: "20px",
+          right: "20px",
+          padding: "8px 12px",
+          fontSize: "14px",
+          borderRadius: "4px",
+          backgroundColor: "#2232a5ff",
+          border: "1px solid #ccc",
+          cursor: "pointer"
+        }}
+      >
+        Правила
+      </button>
     </div>
   );
 }

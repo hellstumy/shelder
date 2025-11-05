@@ -64,7 +64,8 @@ main{
     align-items: start;
     gap: 10px;
     padding: 15px;
-    width: 239px;;
+    width: 239px;
+    height: 400px;
     border-radius: 16px;
 background: #1A1A2E;
 box-shadow: 8px 9px 4px 0 rgba(25, 25, 79, 0.25);
@@ -72,7 +73,6 @@ transition: all 0.3s ease;
 }
 .player-card:hover{
     box-shadow: 8px 9px 4px 0 rgba(140, 103, 242, 0.25);
-    transform: scale(1.05);
     cursor: pointer;
 }
 .player-card:active{
@@ -86,9 +86,31 @@ transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    flex: 1;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #8C67F2 #2C3A67;
+}
+
+.abilitys::-webkit-scrollbar {
+    width: 6px;
+}
+
+.abilitys::-webkit-scrollbar-track {
+    background: #2C3A67;
+    border-radius: 3px;
+}
+
+.abilitys::-webkit-scrollbar-thumb {
+    background: #8C67F2;
+    border-radius: 3px;
+}
+
+.abilitys::-webkit-scrollbar-thumb:hover {
+    background: #A68CF2;
 }
 .abilitys li{
-    
+
     color: #FFF;
 font-family: "Roboto";
 font-size: 16px;
@@ -96,7 +118,11 @@ font-style: normal;
 font-weight: 400;
 line-height: normal;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 .abilitys img{
     margin-right: 10px;
@@ -114,4 +140,11 @@ font-size: 16px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
+}
+.vote-btn{
+    padding: 4px 8px;
+              font-size: 11px;
+              border-radius: 4px;
+                white-space: nowrap;
+         align-self: center;
 }

@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: bunker-backend
+    env: node
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "node index.js"
+    autoDeploy: true
+    disk:
+      name: bunker-db
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: NODE_ENV
+        value: production

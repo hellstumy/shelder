@@ -17,6 +17,7 @@ import {
   onVoteResult,
   onGameOver,
   onAttributeRevealed,
+  emitStateUpdate,
   removeListeners,
 } from "../api/api";
 import useStore from "../tools/store";
@@ -35,7 +36,6 @@ export default function Game() {
   const [gameData, setGameData] = useState(null);
   const [winners, setWinners] = useState([]);
 
-  // --- Таймер ---
   const startTimer = (seconds) => {
     setTimer(seconds);
     const id = setInterval(() => {
@@ -50,26 +50,24 @@ export default function Game() {
     setIntervalId(id);
   };
 
-  // --- Переключение на "voting" и обратно ---
   const setVotingState = async () => {
-    const duration = 60; // секунд
+    const duration = 60;
     try {
       await setRoomState(roomCode, "voting");
       setVoteState("voting");
       startTimer(duration);
 
-      setTimeout(async () => {
-        await setRoomState(roomCode, "started");
+      setTimeout(() => {
+        emitStateUpdate(roomCode, "voting-end");
         setVoteState("started");
         clearInterval(intervalId);
         setTimer(0);
       }, duration * 1000);
     } catch (err) {
-      console.error("Ошибка при установке состояния голосования:", err);
+      console.error("Error setting voting state:", err);
     }
   };
 
-  // --- Обработка выхода ---
   const handleExit = () => {
     backWindowState();
     setButtonState();
@@ -77,14 +75,12 @@ export default function Game() {
     removeListeners();
   };
 
-  // --- Форматирование таймера ---
   const formatTime = (sec) => {
     const m = Math.floor(sec / 60);
     const s = sec % 60;
     return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
   };
 
-  // --- Подписки ---
   useEffect(() => {
     if (!roomCode) return;
 
@@ -95,7 +91,7 @@ export default function Game() {
         const stateData = await getRoomState(roomCode);
         setVoteState(stateData.state);
       } catch (err) {
-        console.error("Ошибка при получении состояния комнаты:", err);
+        console.error("Error getting room state:", err);
       }
     };
     loadInitial();
@@ -145,11 +141,11 @@ export default function Game() {
     onNewRound(() => {
       setVoteProgress({});
       setRevealedAttributes({});
+      setVoteState("started");
     });
 
     onVoteResult((data) => {
-      console.log("🟡 Vote result:", data);
-      // Reset revealed attributes for new round
+      console.log("Vote result:", data);
       setRevealedAttributes({});
     });
 
@@ -182,34 +178,30 @@ export default function Game() {
         )}
 
         <nav>
-          <ul>
-            <li className="nav_li">
-              <img src={player} alt="player icon" />
-              <span>{players.length}</span>
-            </li>
-            <li className="nav_li">
-              <img src={time} alt="time icon" />
-              <span>{timer > 0 ? formatTime(timer) : "00:00"}</span>
-            </li>
-            <li className="nav_li">
-              <img onClick={handleExit} src={exit} alt="exit icon" />
-            </li>
-          </ul>
+          <li className="nav_li">
+            <img src={player} alt="player icon" />
+            <span>{players.length}</span>
+          </li>
+          <li className="nav_li">
+            <img src={time} alt="time icon" />
+            <span>{timer > 0 ? formatTime(timer) : "00:00"}</span>
+          </li>
+          <li className="nav_li">
+            <img onClick={handleExit} src={exit} alt="exit icon" />
+          </li>
         </nav>
       </header>
 
       <main className="game-main">
-        <div className="players-grid">
-          {players.map((p) => (
-            <PlayerCard
-              key={p.id}
-              player={p}
-              voteState={voteState}
-              voteProgress={voteProgress}
-              revealedAttributes={revealedAttributes}
-            />
-          ))}
-        </div>
+        {players.map((p) => (
+          <PlayerCard
+            key={`${p.id}-${p.status}`}
+            player={p}
+            voteState={voteState}
+            voteProgress={voteProgress}
+            revealedAttributes={revealedAttributes}
+          />
+        ))}
       </main>
 
       {gameData && (

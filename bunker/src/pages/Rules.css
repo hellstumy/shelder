@@ -1,0 +1,82 @@
+.rules-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.rules-container h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+}
+
+.rules-container h2 {
+  color: #34495e;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 5px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.rules-container h3 {
+  color: #7f8c8d;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.rules-container p {
+  margin-bottom: 15px;
+}
+
+.rules-container ul, .rules-container ol {
+  margin-bottom: 15px;
+  padding-left: 20px;
+  list-style-position: outside;
+}
+
+.rules-container ul {
+  list-style-type: disc;
+}
+
+.rules-container ol {
+  list-style-type: decimal;
+}
+
+.rules-container li {
+  font-size: larger;
+  color: antiquewhite;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.rules-container .back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.rules-container .back-button img {
+  width: 24px;
+  height: 24px;
+}
+
+@media (max-width: 600px) {
+  .rules-container {
+    padding: 10px;
+  }
+
+  .rules-container h1 {
+    font-size: 24px;
+  }
+
+  .rules-container h2 {
+    font-size: 20px;
+  }
+}
