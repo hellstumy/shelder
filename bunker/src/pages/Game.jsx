@@ -140,13 +140,11 @@ export default function Game() {
 
     onNewRound(() => {
       setVoteProgress({});
-      setRevealedAttributes({});
       setVoteState("started");
     });
 
     onVoteResult((data) => {
       console.log("Vote result:", data);
-      setRevealedAttributes({});
     });
 
     onGameOver(({ winners }) => {

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import useStore from "../../tools/store";
 
 export default function StartGameWaiting() {
-  const { roomCode, setWindowState} = useStore();
+  const { roomCode, setWindowState, setRulesState } = useStore();
   const [players, setPlayers] = useState([]);
 
   // --- Загрузка игроков при подключении ---
@@ -65,7 +65,22 @@ export default function StartGameWaiting() {
       >
         Начать игру
       </button>
-      
+      <button
+        onClick={setRulesState}
+        style={{
+          position: "absolute",
+          top: "20px",
+          right: "20px",
+          padding: "8px 12px",
+          fontSize: "14px",
+          borderRadius: "4px",
+          backgroundColor: "#f0f0f0",
+          border: "1px solid #ccc",
+          cursor: "pointer"
+        }}
+      >
+        Правила
+      </button>
     </div>
   );
 }

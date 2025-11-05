@@ -84,13 +84,13 @@ export default function PlayerCard({
           >
             Показать всем
           </button>
-        ) : null}
+        ) : null} 
       </li>
     );
   };
 
   return (
-    <div className="player-card">
+    <div className="player-card" style={player.status.dead ? {boxShadow: "-7px 6px 4px 0 red"}: {}}>
       <div className="player-main">
         <p className="p-main">{player.name}</p>
         <img
@@ -103,7 +103,14 @@ export default function PlayerCard({
       <button
           onClick={vote}
           title="Vote"
-          
+          style={{
+            marginLeft: 8,
+            padding: "4px 8px",
+            fontSize: 12,
+            borderRadius: 4,
+            cursor: "pointer",
+            alignSelf: "center",
+          }}
           className="vote-btn"
         >
           Голос
