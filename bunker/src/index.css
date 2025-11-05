@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik+Iso&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+li{
+    list-style: none;
+}
+button{
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+    padding: 32px 52px;
+    background-color: blue;
+    color: #FFF5F5;
+
+font-family: Roboto;
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+transition: all 0.3s ease;
+}
+button:hover{
+    transform: translateY(-5px);
+}
+button:active{
+    transform: scale(0.98);
+}
+.error{
+    color: red;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 20px;
+}
+.back{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}

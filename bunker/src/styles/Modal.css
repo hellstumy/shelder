@@ -1,0 +1,121 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #1a1a1a;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 800px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content h2 {
+  color: #4CAF50;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.modal-content h3 {
+  color: #81C784;
+  margin: 1rem 0;
+}
+
+.scenario-section,
+.bunker-section,
+.supplies-section,
+.survivors-section,
+.winners-section {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.bunker-features ul,
+.supplies-section ul {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.bunker-features li,
+.supplies-section li {
+  margin: 0.5rem 0;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.bunker-features li:before,
+.supplies-section li:before {
+  content: "•";
+  color: #4CAF50;
+  position: absolute;
+  left: 0;
+}
+
+.winners-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.winner-card {
+  background-color: rgba(76, 175, 80, 0.1);
+  padding: 1rem;
+  border-radius: 4px;
+  border: 1px solid #4CAF50;
+}
+
+.winner-card h4 {
+  color: #4CAF50;
+  margin: 0 0 0.5rem 0;
+}
+
+.modal-close-btn {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s;
+}
+
+.modal-close-btn:hover {
+  background-color: #45a049;
+}
+
+/* Scrollbar Styling */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #4CAF50;
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: #45a049;
+}

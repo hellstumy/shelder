@@ -1,0 +1,117 @@
+.game-container{
+    background-color: rgb(11, 16, 32);
+}
+h2{
+    color: #9CA9D4;
+-webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: #8C67F2;
+font-family: "Rubik Iso";
+font-size: 36px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+header{
+height: 83px;
+    padding: 20px;
+    background-color: #0C1224;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+nav{
+    padding: 8px 15px;
+    display: flex;
+    gap: 20px;
+    border: 1px solid #121F48;
+background: #0C1224;
+box-shadow: -7px 6px 4px 0 rgba(15, 37, 101, 0.25);
+}
+.nav_li{
+    list-style: none;
+    color: #82789C;
+
+font-family: "Rubik Iso";
+font-size: 32px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+cursor: pointer;
+}
+span{
+    margin-left: 10px;
+}
+main{
+    overflow-y: auto; /* включаем вертикальную прокрутку */
+  overflow-x: hidden; /* скрываем горизонтальную */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding: 42px 58px;
+    height: calc(100vh - 83px);
+}
+.player-card span{
+    width: 100%;
+    height: 1px;
+    background-color: #2C3A67;
+}
+.player-card{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+    padding: 15px;
+    width: 239px;;
+    border-radius: 16px;
+background: #1A1A2E;
+box-shadow: 8px 9px 4px 0 rgba(25, 25, 79, 0.25);
+transition: all 0.3s ease;
+}
+.player-card:hover{
+    box-shadow: 8px 9px 4px 0 rgba(140, 103, 242, 0.25);
+    transform: scale(1.05);
+    cursor: pointer;
+}
+.player-card:active{
+    transform: scale(0.98);
+    box-shadow: none;
+}
+.vote{
+    box-shadow: 8px 9px 4px 0 rgba(37, 221, 71, 0.25)
+}
+.abilitys{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.abilitys li{
+    
+    color: #FFF;
+font-family: "Roboto";
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+    display: flex;
+    align-items: center;
+}
+.abilitys img{
+    margin-right: 10px;
+}
+.player-main{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.p-main{
+    color: #A6B4C0;
+font-family: "Roboto";
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}

@@ -1,0 +1,85 @@
+body{
+    background: linear-gradient(180deg, #0B1020 0.14%, #041857 161.06%);
+  min-height: 100vh;
+}
+.start-game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+h1{
+    color: #9CA9D4;
+-webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: #8C67F2;
+font-family: "Rubik Iso";
+font-size: 96px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;    
+margin-bottom: 100px;
+}
+p{
+    color: #FFF;
+font-family: "Roboto";
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+margin: 12px;
+}
+span{
+    cursor: pointer;
+    
+}
+.start-button {
+    background: linear-gradient(90deg, #0FF 0.05%, #7F00FF 99.95%);
+    
+}
+.start-button:hover{
+    background: linear-gradient(90deg, #0FF 0.05%, #7F00FF 76.95%);
+    
+}
+ 
+.join-button {
+    background: #4355BC;
+}
+.join-button:hover{
+    background: #2C3AA1;
+}
+input{
+    margin: 12px;
+    padding: 16px 24px;
+    border-radius: 32px;
+    background: #98AAA8;
+    border: 1px solid rgba(60, 60, 67, 0.60);
+    font-family: "Roboto";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    
+}
+.start-game-inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+.start-game-waiting{
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+.start-game-waiting p{
+    margin: 8px;
+    text-align: center;
+}
+.button-disabled {
+    opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
